@@ -38,6 +38,10 @@ namespace CompanyManager.Data
                 try
                 {
                     Funcionario funcionarioEditado = _context.Funcionarios.Find(funcionario.Id);
+                    if (funcionarioEditado is null)
+                    {
+                        return false;
+                    }
                     funcionarioEditado.Ddd1 = funcionario.Ddd1;
                     funcionarioEditado.Ddd2 = funcionario.Ddd2;
                     funcionarioEditado.Email = funcionario.Email;
