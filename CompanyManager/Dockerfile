@@ -6,11 +6,11 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-nanoserver-1903 AS build
-WORKDIR ./
+WORKDIR /src
 COPY ["CompanyManager.csproj", "CompanyManager/"]
 RUN dotnet restore "CompanyManager/CompanyManager.csproj"
 COPY . .
-WORKDIR "./CompanyManager"
+WORKDIR "/src/CompanyManager"
 RUN dotnet build "CompanyManager.csproj" -c Release -o /app/build
 
 FROM build AS publish
