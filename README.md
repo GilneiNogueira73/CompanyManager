@@ -1,7 +1,8 @@
 # CompanyManager
 
 Solução para controle dos funcionários da empresa Company.
-Após clonar o repositório, é necessário acionar o Entity Framework para que as migrations iniciais sejam rodadas. Para isso digitar no Package Manager Console os comandos na seguinte ordem: 
+
+Após clonar o repositório, é necessário acionar o Entity Framework para que as migrations iniciais sejam rodadas e o banco seja criado, portanto o primeiro requisito é que tenha instalado na maquina o LocalDb. Com o LocalDb instalado no computador basta digitar no Package Manager Console os comandos na seguinte ordem: 
 
 
    - update-database -context CompanyContext
