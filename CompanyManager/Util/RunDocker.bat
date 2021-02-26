@@ -1,1 +1,3 @@
-docker build -t CompanyManager:v1
+cd ../
+docker build .
+pause
