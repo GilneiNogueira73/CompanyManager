@@ -38,19 +38,24 @@ Informações que serão compartilhadas através da API:
       - senha : String
       - login : String
       - excluido : bool
-        
+
+-----------------------------------------------------------        
+
     *POST de Funcionários*:
 Para inserir o cadastro de um funcionário, é necessário utilizar o endereço:
   http://localhost:57461/Funcionario/IncluiFuncionario
 Deverão ser passados os seguintes parametros na requisição:
-       - "nome" - string
-       - "login" - string
-       - "email" - string
-       - "numeroDeChapa" - int
-       - "senha" - string
-       - "sobrenome" - string
-       - (Se houver)"liderId" - Guid 
+
+            - nome : string
+            - login : string
+            - email : string
+            - numeroDeChapa : int
+            - senha : string
+            - sobrenome : string
+            - (Se houver)liderId : Guid 
         
+----------------------------------------------------------- 
+
     Definir um funcionário como líder:
 Para informar ao sistema que um determinado funcionário agora é um líder, é necessário realizar um POST para a seguinte URI:
   - http://localhost:57461/Funcionario/DefinirLider
@@ -60,6 +65,7 @@ Para informar ao sistema que um determinado funcionário agora é um líder, é 
 Para Editar o cadastro de um funcionário já existente no banco de dados, basta utilizar o endereço:
   - http://localhost:57461/Funcionario/EditarFuncionario
 Na requisição, deverão ser informados os dados a serem alterados, os quais poderão ser:
+
        - "nome" - String
        - "sobrenome" - String
        - "email" - String
@@ -71,6 +77,7 @@ Na requisição, deverão ser informados os dados a serem alterados, os quais po
        - "liderId" - Guid
        - "senha" - String
        - "login" - String
+        
         
 É DE SUMA IMPORTANCIA INFORMAR NA REQUISIÇÃO O id DO FUNCIONÁRIO.
 
