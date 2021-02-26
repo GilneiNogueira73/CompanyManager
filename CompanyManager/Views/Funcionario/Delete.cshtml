@@ -1,0 +1,41 @@
+﻿@*@model IEnumerable<CompanyManager.Models.Funcionario>
+
+@{
+    ViewBag.Title = "Apagar variável";
+}
+
+<h2>Apagar</h2>
+
+<h3>Você tem certeza que deseja apagar este registro?</h3>
+<div>
+    <h4>Variavel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar para a listagem de Variáveis", "Index")
+        </div>
+    }
+</div>*@

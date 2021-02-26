@@ -20,8 +20,9 @@ namespace CompanyManager.Models
         public int? Telefone1 { get; set; }
         public int? Ddd2 { get; set; }
         public int? Telefone2 { get; set; }
-        //public Guid LiderId { get; set; }
+        public Guid? LiderId { get; set; }
         public string Senha { get; set; }
         public string Login { get; set; }
+        public bool Excluido { get; set; }
     }
 }

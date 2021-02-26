@@ -28,8 +28,6 @@ namespace CompanyManager
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-
-            //services.AddDbContext<CompanyContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

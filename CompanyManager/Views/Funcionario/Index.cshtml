@@ -1,0 +1,41 @@
+﻿
+@model IEnumerable<CompanyManager.Models.Funcionario>
+
+@{
+    ViewBag.Title = "Listagem de Funcionários";
+}
+
+    <h2>Listagem de Funcionários</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Funcionario", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroDeChapa)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDeChapa)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Excluir Funcionario", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

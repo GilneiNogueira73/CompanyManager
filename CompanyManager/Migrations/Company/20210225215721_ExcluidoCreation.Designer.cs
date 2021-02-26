@@ -4,14 +4,16 @@ using CompanyManager.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CompanyManager.Migrations.Company
 {
     [DbContext(typeof(CompanyContext))]
-    partial class CompanyContextModelSnapshot : ModelSnapshot
+    [Migration("20210225215721_ExcluidoCreation")]
+    partial class ExcluidoCreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +39,7 @@ namespace CompanyManager.Migrations.Company
                     b.Property<bool>("Excluido")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("LiderId")
+                    b.Property<Guid?>("LiderId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Login")

@@ -52,6 +52,63 @@ namespace CompanyManager.Data
                     funcionarioEditado.Sobrenome = funcionario.Sobrenome;
                     funcionarioEditado.Telefone1 = funcionario.Telefone1;
                     funcionarioEditado.Telefone2 = funcionario.Telefone2;
+                    funcionarioEditado.Excluido = funcionario.Excluido;
+                    funcionarioEditado.LiderId = funcionario.LiderId;
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        public bool ExcluirFuncionario(Funcionario funcionario)
+        {
+            if (funcionario.Id == null)
+            {
+                return false;
+            }
+            using (var _context = new CompanyContext())
+            {
+                try
+                {
+                    Funcionario funcionarioExcluido = _context.Funcionarios.Find(funcionario.Id);
+                    if (funcionarioExcluido is null)
+                    {
+                        return false;
+                    }
+                    funcionarioExcluido.Excluido = true;
+                    _context.SaveChanges();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        public bool DefineLider(Lider funcionarioLider)
+        {
+            if (funcionarioLider.FuncionarioId == null)
+            {
+                return false;
+            }
+            using (var _context = new CompanyContext())
+            {
+                try
+                {
+                    Funcionario funcionarioEditado = _context.Funcionarios.Find(funcionarioLider.FuncionarioId);
+                    if (funcionarioEditado is null)
+                    {
+                        return false;
+                    }
+                    funcionarioLider.Excluido = funcionarioEditado.Excluido;
+                    _context.Lideres.Add(funcionarioLider);
                     _context.SaveChanges();
                 }
                 catch (Exception)

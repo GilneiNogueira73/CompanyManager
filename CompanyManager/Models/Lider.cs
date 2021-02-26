@@ -11,6 +11,7 @@ namespace CompanyManager.Models
         [Key]
         public Guid Id { get; set; }
         public Guid FuncionarioId { get; set; }
+        public bool Excluido { get; set; }
 
     }
 }
