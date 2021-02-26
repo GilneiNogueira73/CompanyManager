@@ -7,15 +7,17 @@ using CompanyManager.Models;
 using CompanyManager.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyManager.Controllers
 {
-    [Authorize]
+
     [Route("Funcionario")]
     [ApiController]
     public class FuncionarioController : Controller
     {
         private CompanyContext db = new CompanyContext();
+        [Route("Index")]
         public ActionResult Index()
         {
             return View(db.Funcionarios.ToList());
@@ -36,7 +38,7 @@ namespace CompanyManager.Controllers
             using (var _context = new CompanyContext())
             {
                 return _context.Funcionarios
-                .Where(x => x.Id == id).ToList(); 
+                .Where(x => x.Id == id).ToList();
             }
 
         }
@@ -74,25 +76,22 @@ namespace CompanyManager.Controllers
             }
             return Ok($"Não foi possível cadastrar o funcionario {funcionario.Nome}!");
         }
-        [Route("Create")]
+        [HttpGet]
+        [Route("Creating")]
         public ActionResult Create()
         {
             return View();
         }
-        [Route("Create")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Creating")]
         public ActionResult Create(Funcionario funcionario)
         {
-            if (ModelState.IsValid)
-            {
-                funcionario.Id = Guid.NewGuid();
-                db.Funcionarios.Add(funcionario);
-                db.SaveChanges();
+            funcionario.Id = Guid.NewGuid();
+            db.Funcionarios.Add(funcionario);
+            db.SaveChanges();
 
-                return RedirectToAction("Index");
-            }
-
-            return View();
+            return RedirectToAction("Index");
         }
 
         [Route("DefinirLider")]
@@ -164,9 +163,76 @@ namespace CompanyManager.Controllers
 
         }
 
+        [Route("Details")]
+        public ActionResult Details(Guid? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null)
+            {
+                return NotFound();
+            }
+            return View(funcionario);
+        }
+
+        [HttpGet]
+        [Route("Edit")]
+        public ActionResult Edit(Guid? id, string? nome)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null)
+            {
+                return NotFound();
+            }
+            return View(funcionario);
+        }
 
 
+        [HttpPost]
+        public ActionResult Edit(Guid? id)
+        {
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (ModelState.IsValid)
+            {
+                db.Entry(funcionario).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(funcionario);
+        }
 
-        
+        [HttpGet]
+        [Route("Delete")]
+        public ActionResult Delete(Guid? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null)
+            {
+                return NotFound();
+            }
+            return View(funcionario);
+        }
+
+        [HttpPost]
+        [Route("Delete")]
+        public ActionResult Delete(Guid id)
+        {
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            db.Funcionarios.Remove(funcionario);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

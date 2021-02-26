@@ -1,14 +1,14 @@
-﻿@*@model IEnumerable<CompanyManager.Models.Funcionario>
+﻿@model CompanyManager.Models.Funcionario
 
 @{
-    ViewBag.Title = "Apagar variável";
+    ViewBag.Title = "Apagar Funcionário";
 }
 
 <h2>Apagar</h2>
 
 <h3>Você tem certeza que deseja apagar este registro?</h3>
 <div>
-    <h4>Variavel</h4>
+    <h4>Funcionário</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,14 +19,6 @@
             @Html.DisplayFor(model => model.Nome)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Valor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Valor)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm())
@@ -35,7 +27,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Apagar" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar para a listagem de Variáveis", "Index")
+            @Html.ActionLink("Voltar para a listagem de Funcionários", "Index")
         </div>
     }
-</div>*@
+</div>

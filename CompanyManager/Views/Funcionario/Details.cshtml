@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<CompanyManager.Models.Funcionario>
+﻿@model CompanyManager.Models.Funcionario
 
 @{
     ViewBag.Title = "Detalhes";
@@ -19,16 +19,79 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Valor)
+            @Html.DisplayNameFor(model => model.Sobrenome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Valor)
+            @Html.DisplayFor(model => model.Sobrenome)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroDeChapa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroDeChapa)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ddd1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ddd1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ddd2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ddd2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LiderId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LiderId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+
+
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Voltar para a lista de variáveis", "Index")
-</p>*@
+    @Html.ActionLink("Voltar para a lista de Funcionários", "Index")
+</p>

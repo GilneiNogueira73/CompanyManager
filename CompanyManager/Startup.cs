@@ -28,6 +28,8 @@ namespace CompanyManager
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddMvc(options => options.EnableEndpointRouting = false);
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

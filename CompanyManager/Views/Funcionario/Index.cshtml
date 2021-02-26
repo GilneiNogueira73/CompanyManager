@@ -8,12 +8,15 @@
     <h2>Listagem de Funcionários</h2>
 
 <p>
-    @Html.ActionLink("Adicionar Funcionario", "Create")
+    @Html.ActionLink("Adicionar Funcionario", "Creating")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobrenome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NumeroDeChapa)
@@ -28,12 +31,16 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Sobrenome)
+            </td>
+
+            <td>
                 @Html.DisplayFor(modelItem => item.NumeroDeChapa)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Excluir Funcionario", "Delete", new { id = item.Id })
+                @Html.ActionLink("Editar", "Edit", "Funcionario", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", "Funcionario", new { id = item.Id }) |
+                @Html.ActionLink("Excluir Funcionario", "Delete", "Funcionario", new { id = item.Id })
             </td>
         </tr>
     }
