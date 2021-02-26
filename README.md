@@ -24,19 +24,20 @@ Já para identificar um funcionário em específico, basta passar como parametro
 - http://localhost:57461/funcionario/Id
  
 Informações que serão compartilhadas através da API:
-       - id : Guid
-       - nome : String
-       - sobrenome : String
-       - email : String
-       - numeroDeChapa : int
-       - ddd1 : int
-       - telefone1 : int
-       - ddd2 : int
-       - telefone2 : int
-       - liderId : Guid
-       - senha : String
-       - login : String
-       - excluido : bool
+
+      - id : Guid
+      - nome : String
+      - sobrenome : String
+      - email : String
+      - numeroDeChapa : int
+      - ddd1 : int
+      - telefone1 : int
+      - ddd2 : int
+      - telefone2 : int
+      - liderId : Guid
+      - senha : String
+      - login : String
+      - excluido : bool
         
     *POST de Funcionários*:
 Para inserir o cadastro de um funcionário, é necessário utilizar o endereço:
