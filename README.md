@@ -2,8 +2,11 @@
 
 Solução para controle dos funcionários da empresa Company.
 Após clonar o repositório, é necessário acionar o Entity Framework para que as migrations iniciais sejam rodadas. Para isso digitar no Package Manager Console os comandos na seguinte ordem: 
-1º: update-database -context CompanyContext
-2º: update-database -context AuthenticationDbContext
+
+
+   - update-database -context CompanyContext
+   - update-database -context AuthenticationDbContext
+
 
 Pronto! Com isso o banco de dados estará pronto para uso. Ao rodar o sistema, será solicitado email e senha para acesso:
 Email: admin@companymanager.com
