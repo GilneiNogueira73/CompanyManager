@@ -68,3 +68,4 @@ Na requisição, deverão ser informados os dados a serem alterados, os quais po
 
 *UTIL*
 - Collection do Postman com as requisições: https://www.getpostman.com/collections/16b87cfb9e06b18ad505
+- Na pasta Util há um bat com o comando para transformar a aplicação em um container, basta executar o arquivo RunDocker.bat ;)
