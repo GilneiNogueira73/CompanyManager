@@ -76,23 +76,7 @@ namespace CompanyManager.Controllers
             }
             return Ok($"Não foi possível cadastrar o funcionario {funcionario.Nome}!");
         }
-        [HttpGet]
-        [Route("Creating")]
-        public ActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Route("Creating")]
-        public ActionResult Create(Funcionario funcionario)
-        {
-            funcionario.Id = Guid.NewGuid();
-            db.Funcionarios.Add(funcionario);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
-        }
+        
 
         [Route("DefinirLider")]
         public ActionResult DefineLider(Guid funcionarioId)
@@ -231,6 +215,23 @@ namespace CompanyManager.Controllers
             Funcionario funcionario = db.Funcionarios.Find(id);
             db.Funcionarios.Remove(funcionario);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [Route("Creating")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Route("Creating")]
+        public ActionResult Create(Funcionario funcionario)
+        {
+            funcionario.Id = Guid.NewGuid();
+            db.Funcionarios.Add(funcionario);
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
