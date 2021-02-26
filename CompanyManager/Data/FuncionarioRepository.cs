@@ -15,6 +15,10 @@ namespace CompanyManager.Data
             {
                 try
                 {
+                    if (ValidaSeExisteNumeroChapa(funcionario))
+                    {
+                        return false;
+                    }
                     _context.Funcionarios.Add(funcionario);
                     _context.SaveChanges();
                 }
@@ -54,6 +58,10 @@ namespace CompanyManager.Data
                     funcionarioEditado.Telefone2 = funcionario.Telefone2;
                     funcionarioEditado.Excluido = funcionario.Excluido;
                     funcionarioEditado.LiderId = funcionario.LiderId;
+                    if (ValidaSeExisteNumeroChapa(funcionarioEditado))
+                    {
+                        return false;
+                    }
                     _context.SaveChanges();
                 }
                 catch (Exception)
@@ -62,6 +70,20 @@ namespace CompanyManager.Data
                 }
 
                 return true;
+            }
+        }
+
+        public bool ValidaSeExisteNumeroChapa(Funcionario funcionario)
+        {
+            using (var _context = new CompanyContext())
+            {
+                var existe = _context.Funcionarios.Find(funcionario.NumeroDeChapa);
+                if (existe != null || existe.Id != funcionario.Id)
+                {
+                    return true;
+                }
+
+                return false;
             }
         }
 
