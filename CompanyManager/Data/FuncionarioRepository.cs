@@ -58,10 +58,7 @@ namespace CompanyManager.Data
                     funcionarioEditado.Telefone2 = funcionario.Telefone2;
                     funcionarioEditado.Excluido = funcionario.Excluido;
                     funcionarioEditado.LiderId = funcionario.LiderId;
-                    if (ValidaSeExisteNumeroChapa(funcionarioEditado))
-                    {
-                        return false;
-                    }
+
                     _context.SaveChanges();
                 }
                 catch (Exception)
@@ -77,8 +74,8 @@ namespace CompanyManager.Data
         {
             using (var _context = new CompanyContext())
             {
-                var existe = _context.Funcionarios.Find(funcionario.NumeroDeChapa);
-                if (existe != null || existe.Id != funcionario.Id)
+                var existe = _context.Funcionarios.Where(x => x.NumeroDeChapa == funcionario.NumeroDeChapa).ToList();
+                if (existe.Count > 0)
                 {
                     return true;
                 }
