@@ -9,8 +9,9 @@ Após clonar o repositório, é necessário acionar o Entity Framework para que 
 
 
 Pronto! Com isso o banco de dados estará pronto para uso. Ao rodar o sistema, será solicitado email e senha para acesso:
-Email: admin@companymanager.com
-Senha: Abc#123456
+   
+   - Email: admin@companymanager.com
+   - Senha: Abc#123456
 
 Ao logar, o navegador registrará um cookie com a autenticação e não será necessário informar o login novamente até que este cookie expire :)
 
